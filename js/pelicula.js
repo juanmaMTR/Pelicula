@@ -40,6 +40,10 @@ class Pelicula{
     this.paco.arma.disparar()
     this.paco.arma.matar()
 
+    this.maria.arma.cargar()
+    this.maria.arma.disparar()
+    this.maria.arma.matar()
+
 
   }
 }
@@ -103,7 +107,7 @@ class Arma{
       document.write(`<p><span>${this.nombre}:</span>¡HE FALLADO!</p>`)
     }else{
       document.write(`<p><span>${this.nombre}:</span>¡TE HE MATADO!</p>`)
-      
+
     }
   }
 }
