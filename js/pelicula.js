@@ -12,6 +12,10 @@ class Pelicula{
     this.paco=new PersonajeBueno('Paco')
     this.maria=new PersonajeBueno('Maria')
     this.morgan=new PersonajeMalo('Morgan Ojo Morao\'')
+    this.paco.arma= new Arma(10,7,'Paco')
+    this.morgan.arma=new Arma(5,6,'Morgan Ojo Morao\'')
+    this.maria.arma=new Arma(4,4,'Maria')
+
 
 
 
@@ -27,17 +31,15 @@ class Pelicula{
     this.narrador.hablar(`De repente, llega una persona nueva al pueblo llamada Morgan.`)
     this.morgan.hablar(`Vaya pueblo más... polvoriento.`)
     this.morgan.hablar(`¡Eh tú! ¡Pringáo! Dame tu caballo y la cartera.`)
-    this.arma.cargador(7)
-    this.paco.arma.cargar(20)
+
+    this.morgan.arma.cargar()
+    this.morgan.arma.disparar()
+    this.morgan.arma.matar()
+
+    this.paco.arma.cargar()
     this.paco.arma.disparar()
-    this.paco.arma.disparar()
-    this.paco.arma.disparar()
-    this.paco.arma.disparar()
-    this.paco.arma.disparar()
-    this.paco.arma.disparar()
-    this.paco.arma.disparar()
-    this.paco.arma.disparar()
-    this.paco.arma.disparar()
+    this.paco.arma.matar()
+
 
   }
 }
@@ -76,9 +78,12 @@ class PersonajeMalo extends Personaje{
   }
 }
 class Arma{
-  cargar(balas,cargador){
+  constructor(balas, cargador,nombre){
     this.balas=balas
     this.cargador=cargador
+    this.nombre=nombre
+  }
+  cargar(){
     if(this.balas>this.cargador){
       this.balas=7
     }
@@ -90,6 +95,16 @@ class Arma{
       document.write(`<p>¡¡CLICK!!</p>`)
     }
     this.balas--
+  }
+  matar(){
+    let random=parseInt(Math.random()*2)
+
+    if(random==0){
+      document.write(`<p><span>${this.nombre}:</span>¡HE FALLADO!</p>`)
+    }else{
+      document.write(`<p><span>${this.nombre}:</span>¡TE HE MATADO!</p>`)
+      
+    }
   }
 }
 
